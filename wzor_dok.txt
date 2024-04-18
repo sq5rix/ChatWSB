@@ -1,0 +1,11 @@
+Data: 2024-04-20
+Imię: Tomasz
+Nazwisko: Kowalski
+Rok: 3
+Grupa: G3
+Id studenta: 36533
+Temat pracy: laboratorium IoT 
+Domena: sprzęt/oprogramowanie/dane/kod 
+Źródła: artykuły, książki, linki 
+Treść:
+Treść dokumentu 
