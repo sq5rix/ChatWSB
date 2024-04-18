@@ -1,7 +1,43 @@
 import streamlit as st
+import sqlite3
 import os
 import tempfile
 from compare_function import compare_file  # Import your compare_file function here
+
+# Function to create database table for users
+def create_table():
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS users
+                 (username TEXT PRIMARY KEY, password TEXT)''')
+    conn.commit()
+    conn.close()
+
+# Function to insert new user into database
+def insert_user(username, password):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+    conn.commit()
+    conn.close()
+
+# Function to check if username exists in database
+def username_exists(username):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM users WHERE username=?", (username,))
+    result = c.fetchone()
+    conn.close()
+    return result is not None
+
+# Function to verify login credentials
+def verify_login(username, password):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
+    result = c.fetchone()
+    conn.close()
+    return result is not None
 
 # Function to process uploaded files
 def process_files(files):
@@ -27,14 +63,31 @@ def process_files(files):
 def main():
     st.title("PDF Comparison Tool")
 
+    # Create database table if not exists
+    create_table()
+
     # Sidebar for register and login
     st.sidebar.title("User Authentication")
     username = st.sidebar.text_input("Username")
     password = st.sidebar.text_input("Password", type="password")
+
+    # Registration
+    if st.sidebar.button("Register"):
+        if username == "" or password == "":
+            st.warning("Please enter both username and password.")
+        elif username_exists(username):
+            st.warning("Username already exists. Please choose a different username.")
+        else:
+            insert_user(username, password)
+            st.success("Registration successful. You can now login.")
+
+    # Login
     login_button = st.sidebar.button("Login")
     if login_button:
-        # Placeholder for authentication logic
-        st.sidebar.success(f"Welcome, {username}!")
+        if verify_login(username, password):
+            st.sidebar.success(f"Welcome, {username}!")
+        else:
+            st.sidebar.error("Invalid username or password. Please try again.")
 
     # Main window
     st.header("Upload PDF Files")
