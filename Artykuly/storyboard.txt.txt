@@ -1,0 +1,13 @@
+- streamlit
+	- connect to db 
+	- list with filter of all files in db
+	- display imię nazwisko temat grupa rok distance
+	- text area to send prompt to chatbot
+
+- db with first_name, name, subject, digest, year, group, distance, text, bot_text
+	- create db
+	- create python CRUD class 
+	- method to calculate distance - possible different metrics 
+
+- process class to read new files from repository, 
+	
