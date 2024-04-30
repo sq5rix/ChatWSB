@@ -1,3 +1,5 @@
+Python code blocks:
+
 - streamlit
 	- connect to db 
 	- list with filter of all files in db
@@ -9,5 +11,5 @@
 	- create python CRUD class 
 	- method to calculate distance - possible different metrics 
 
-- process class to read new files from repository, 
+- process class to read new files from repository 
 	
