@@ -1,0 +1,6 @@
+openai
+pdfplumber
+scipy
+spacy
+python-dotenv
+psycopg2-binary
