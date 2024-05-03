@@ -1,0 +1,18 @@
+linki do kodow i artykulow wykrywanie plagiatow 
+
+https://github.com/jpwahle/iconf22-paraphrase
+https://huggingface.co/jpwahle/longformer-base-plagiarism-detection/commit/cc8e4be59dde038a588dcd200570f106575f719b
+https://github.com/sdadas/polish-nlp-resources
+https://github.com/topics/paraphrase-detection
+https://huggingface.co/01-ai/Yi-VL-6B
+
+https://arxiv.org/abs/2302.04335
+https://arxiv.org/abs/2306.08122
+http://arxiv.org/pdf/2310.01423
+https://arxiv.org/abs/2404.01582
+https://arxiv.org/abs/2103.11909
+https://arxiv.org/abs/2303.11156
+https://arxiv.org/abs/2312.17289
+https://arxiv.org/abs/2212.06933
+https://arxiv.org/abs/2310.15264
+https://arxiv.org/abs/2002.04279
