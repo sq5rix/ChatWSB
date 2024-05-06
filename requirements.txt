@@ -3,4 +3,5 @@ pdfplumber
 scipy
 spacy
 python-dotenv
+sqlalchemy
 psycopg2-binary
