@@ -13,6 +13,9 @@ unikalny umieść w tabeli
 # Directory containing the PDF files
 pdf_directory = 'PlikiWejsciowe'
 
+# plik sqlite3
+DB_FILE = 'sqlite:///kolokwia.db'
+
 # Regular expression patterns to match specific information
 patterns = {
     'data': r'Data: (\d{4}-\d{2}-\d{2})',
@@ -62,7 +65,7 @@ def extract_information(pdf_path):
 
 def read_all_files():
     all_texts = ""
-    db = Database(Kolokwia)
+    db = Database(Kolokwia, DB_FILE)
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.pdf'):
             file_path = os.path.join(pdf_directory, filename)
