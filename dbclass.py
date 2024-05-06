@@ -38,6 +38,10 @@ class Database:
             return True
         return False
 
+    def truncate_table(self):
+        self.session.execute(text(f"DELETE FROM {self.model_class.__tablename__}"))
+        self.session.commit()
+
     def find_by_value(self, attribute, value):
         # Query the session for records where the specified attribute matches the given value
         return self.session.query(self.model_class).filter(getattr(self.model_class, attribute) == value).all()

@@ -1,8 +1,8 @@
 import os
 import re
-from sqlalchemy import Column, Integer, String
 
 from dbclass import Database, Base
+from kolokwia import Kolokwia, DB_FILE
 from utils import calculate_digest, read_pdf
 
 """
@@ -12,9 +12,6 @@ unikalny umieść w tabeli
 """
 # Directory containing the PDF files
 pdf_directory = 'PlikiWejsciowe'
-
-# plik sqlite3
-DB_FILE = 'sqlite:///kolokwia.db'
 
 # Regular expression patterns to match specific information
 patterns = {
@@ -30,25 +27,6 @@ patterns = {
     'tresc': r'Treść.*?:(.*?)\n'
 }
 
-class Kolokwia(Base):
-    __tablename__ = 'kolokwia'
-
-    id          = Column(Integer, primary_key=True)
-    data        = Column(String)
-    imie        = Column(String)
-    nazwisko    = Column(String)
-    rok         = Column(String)
-    grupa       = Column(String)
-    id_studenta = Column(String, nullable=False)
-    digest      = Column(String)
-    pytanie     = Column(String)
-    domena      = Column(String)
-    zrodla      = Column(String)
-    tresc       = Column(String)
-    text       = Column(String)
-
-    def __repr__(self):
-        return f"<MyModel(name='{self.name}', age={self.age})>"
 
 def extract_information(pdf_path):
         # Dictionary to hold the extracted data
@@ -66,6 +44,7 @@ def extract_information(pdf_path):
 def read_all_files():
     all_texts = ""
     db = Database(Kolokwia, DB_FILE)
+    db.truncate_table()
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.pdf'):
             file_path = os.path.join(pdf_directory, filename)
