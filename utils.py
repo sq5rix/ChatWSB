@@ -1,4 +1,5 @@
 import hashlib
+import pdfplumber
 
 def calculate_digest(input_string):
     # Encode the input string to bytes
@@ -14,6 +15,13 @@ def calculate_digest(input_string):
     digest_number = int(hex_digest, 16)
 
     return digest_number
+
+def read_pdf(pdf_path):
+    with pdfplumber.open(pdf_path) as pdf:
+        text = ''
+        for page in pdf.pages:
+            text += page.extract_text() or ''  # Concatenate text of all pages
+        return text
 
 def main():
     input_string = "Hello, World!"

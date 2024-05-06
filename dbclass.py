@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -41,3 +41,6 @@ class Database:
     def find_by_value(self, attribute, value):
         # Query the session for records where the specified attribute matches the given value
         return self.session.query(self.model_class).filter(getattr(self.model_class, attribute) == value).all()
+
+    def exec_query(self, query_string):
+        return self.session.execute(text(query_string))
