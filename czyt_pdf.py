@@ -44,7 +44,7 @@ def extract_information(pdf_path):
 def read_all_files():
     all_texts = ""
     db = Database(Kolokwia, DB_FILE)
-    db.truncate_table()
+    #db.truncate_table()
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.pdf'):
             file_path = os.path.join(pdf_directory, filename)

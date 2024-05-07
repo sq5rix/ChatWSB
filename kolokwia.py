@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy import Column, Integer, String, UniqueConstraint
+from sqlalchemy import UniqueConstraint, ForeignKey
+from sqlalchemy.orm import relationship
 from dbclass import Database, Base
 
 # plik sqlite3
@@ -19,23 +20,27 @@ class Kolokwia(Base):
     pytanie     = Column(String)
     domena      = Column(String)
     zrodla      = Column(String)
-    tresc       = Column(String, nullable=False, unique=True)
-    text       = Column(String)
+    tresc       = Column(String, nullable=False)
+    text        = Column(String)
     __table_args__ = (
             UniqueConstraint(
-                digest, name='idx_digest'),
+                digest, ),
          )
 
 
     def __repr__(self):
-        return f"<MyModel(name='{self.name}', age={self.age})>"
+        return f"<MyModel(imie='{self.imie}', nazwisko={self.nazwisko})>"
 
-#class Tematy(Base):
-#    __tablename__ = 'kolokwia'
-#
-#    id          = Column(Integer, primary_key=True)
-#    pytanie     = Column(String)
-#    odp_chat    = Column(String)
-#
-#    def __repr__(self):
-#        return f"<MyModel(name='{self.name}', age={self.age})>"
+class Tematy(Base):
+    __tablename__ = 'tematy'
+
+    id          = Column(Integer, primary_key=True)
+    odp_chat    = Column(String)
+    pytanie = Column(String, ForeignKey('kolokwia.pytanie'))
+    kolokwium = relationship(Kolokwia)
+
+
+    def __repr__(self):
+        return f"<MyModel(name='{self.pytanie}', odp_chat={self.odp_chat})>"
+
+
