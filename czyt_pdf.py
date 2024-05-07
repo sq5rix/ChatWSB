@@ -50,7 +50,11 @@ def read_all_files():
             file_path = os.path.join(pdf_directory, filename)
             info = extract_information(file_path)
             info['digest'] = str(calculate_digest(info['text']))
-            db.create_record(info)
+            is_digest = db.session.query(
+                    Kolokwia
+                ).filter_by(digest=info['digest']).first()
+            if not is_digest:
+                db.create_record(info)
             all_texts += info['text']
     sel = db.exec_query('select * from kolokwia')
     for i in sel:
