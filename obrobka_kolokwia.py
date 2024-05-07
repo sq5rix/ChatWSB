@@ -3,11 +3,10 @@ from kolokwia import Kolokwia, DB_FILE
 
 def main():
     db = Database(Kolokwia, DB_FILE)
-    sel = db.exec_query('select id_studenta from kolokwia')
+    sel = db.exec_query('select digest from kolokwia')
     for i in sel:
-        print('sel : ', i[0] )
+        print('sel : ', i[0][:18] )
 
 if __name__ == "__main__":
     all = main()
-
 
