@@ -43,8 +43,8 @@ def extract_information(pdf_path):
 
 def read_all_files():
     all_texts = ""
-    db = Database(Kolokwia, DB_FILE)
-    #db.truncate_table()
+    db = Database(DB_FILE)
+    #db.truncate_table(Kolokwia)
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.pdf'):
             file_path = os.path.join(pdf_directory, filename)
@@ -54,7 +54,7 @@ def read_all_files():
                     Kolokwia
                 ).filter_by(digest=info['digest']).first()
             if not is_digest:
-                db.create_record(info)
+                db.create_record(Kolokwia,info)
             all_texts += info['text']
     sel = db.exec_query('select * from kolokwia')
     for i in sel:

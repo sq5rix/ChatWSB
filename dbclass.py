@@ -4,21 +4,20 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 Base = declarative_base()
 
 class Database:
-    def __init__(self, model_class, db_url='sqlite:///:memory:'):
+    def __init__(self, db_url='sqlite:///:memory:'):
         self.engine = create_engine(db_url)
-        self.model_class = model_class
         Base.metadata.create_all(self.engine)
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
-    def create_record(self, values):
-        record = self.model_class(**values)
+    def create_record(self, model_class, values):
+        record = model_class(**values)
         self.session.add(record)
         self.session.commit()
-        return record.id
+        return record
 
-    def get_record(self, record_id):
-        return self.session.get(self.model_class, record_id)
+    def get_record(self, model_class, record_id):
+        return self.session.get(model_class, record_id)
 
     def update_record(self, record_id, new_values):
         record = self.get_record(record_id)
@@ -37,13 +36,14 @@ class Database:
             return True
         return False
 
-    def truncate_table(self):
-        self.session.execute(text(f"DELETE FROM {self.model_class.__tablename__}"))
+    def truncate_table(self, model_class):
+        self.session.execute(text(f"DELETE FROM {model_class.__tablename__}"))
         self.session.commit()
 
-    def find_by_value(self, attribute, value):
+    def find_by_value(self, model_class, attribute, value):
         # Query the session for records where the specified attribute matches the given value
-        return self.session.query(self.model_class).filter(getattr(self.model_class, attribute) == value).all()
+        return self.session.query(model_class).filter(getattr(model_class, attribute) == value).all()
 
     def exec_query(self, query_string):
         return self.session.execute(text(query_string))
+

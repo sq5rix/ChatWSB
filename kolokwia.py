@@ -22,23 +22,15 @@ class Kolokwia(Base):
     zrodla      = Column(String)
     tresc       = Column(String, nullable=False)
     text        = Column(String)
-    __table_args__ = (
-            UniqueConstraint(
-                digest, ),
-         )
-
 
     def __repr__(self):
         return f"<MyModel(imie='{self.imie}', nazwisko={self.nazwisko})>"
 
 class Tematy(Base):
     __tablename__ = 'tematy'
-
     id          = Column(Integer, primary_key=True)
     odp_chat    = Column(String)
     pytanie = Column(String, ForeignKey('kolokwia.pytanie'))
-    kolokwium = relationship(Kolokwia)
-
 
     def __repr__(self):
         return f"<MyModel(name='{self.pytanie}', odp_chat={self.odp_chat})>"
