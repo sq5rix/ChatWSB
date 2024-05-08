@@ -10,6 +10,12 @@ class Database:
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
+    def create_table(self, model_class):
+        try:
+            model_class.__table__.create(self.engine)
+        except Exception as e:
+            print('e: ', e)
+
     def create_record(self, model_class, values):
         record = model_class(**values)
         self.session.add(record)
@@ -19,8 +25,8 @@ class Database:
     def get_record(self, model_class, record_id):
         return self.session.get(model_class, record_id)
 
-    def update_record(self, record_id, new_values):
-        record = self.get_record(record_id)
+    def update_record(self, model_class, record, new_values):
+        #record = self.get_record(model_class, record_id)
         if record:
             for key, value in new_values.items():
                 setattr(record, key, value)
@@ -28,8 +34,8 @@ class Database:
             return record
         return None
 
-    def delete_record(self, record_id):
-        record = self.get_record(record_id)
+    def delete_record(self, model_class, record_id):
+        record = self.get_record(model_class, record_id)
         if record:
             self.session.delete(record)
             self.session.commit()

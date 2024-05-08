@@ -20,7 +20,7 @@ class Kolokwia(Base):
     pytanie     = Column(String)
     domena      = Column(String)
     zrodla      = Column(String)
-    tresc       = Column(String, nullable=False)
+    tresc       = Column(String)
     text        = Column(String)
 
     def __repr__(self):
@@ -29,10 +29,10 @@ class Kolokwia(Base):
 class Tematy(Base):
     __tablename__ = 'tematy'
     id          = Column(Integer, primary_key=True)
-    odp_chat    = Column(String)
     pytanie = Column(String, ForeignKey('kolokwia.pytanie'))
+    aitext  = Column(String)
 
     def __repr__(self):
-        return f"<MyModel(name='{self.pytanie}', odp_chat={self.odp_chat})>"
+        return f"<MyModel(name='{self.pytanie}', aitext={self.aitext})>"
 
 
