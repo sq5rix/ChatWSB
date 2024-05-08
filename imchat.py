@@ -10,7 +10,6 @@ def infer_chat(prompt):
 
     Args:
     prompt (str): The prompt to generate text from.
-    api_key (str): Your API key for OpenAI.
 
     Returns:
     str: The generated text.
@@ -33,7 +32,7 @@ def infer_chat(prompt):
     return response.choices[0].message.content
 
 def main():
-    infer_chat = generate_text(f"Treść: {read_all_files()} Pytanie: {general_prompt}")
+    generate_text = infer_chat(f"Treść: {read_all_files()} Pytanie: {general_prompt}")
     print(generated_text )
 
 if __name__ == "__main__":

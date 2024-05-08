@@ -17,6 +17,7 @@ class Kolokwia(Base):
     grupa       = Column(String)
     id_studenta = Column(String, nullable=False)
     digest      = Column(String, nullable=False, unique=True)
+    nazwa_pliku = Column(String)
     pytanie     = Column(String)
     domena      = Column(String)
     zrodla      = Column(String)
@@ -29,10 +30,10 @@ class Kolokwia(Base):
 class Tematy(Base):
     __tablename__ = 'tematy'
     id          = Column(Integer, primary_key=True)
-    pytanie = Column(String, ForeignKey('kolokwia.pytanie'))
+    pytanie = Column(String, unique=True)
     aitext  = Column(String)
 
     def __repr__(self):
-        return f"<MyModel(name='{self.pytanie}', aitext={self.aitext})>"
+        return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
 
 

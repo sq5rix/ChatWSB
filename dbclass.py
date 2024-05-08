@@ -10,12 +10,6 @@ class Database:
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
-    def create_table(self, model_class):
-        try:
-            model_class.__table__.create(self.engine)
-        except Exception as e:
-            print('e: ', e)
-
     def create_record(self, model_class, values):
         record = model_class(**values)
         self.session.add(record)
