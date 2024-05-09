@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine, Column, Integer, String, text
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+# plik sqlite3
+DB_FILE = 'sqlite:///kolokwia.db'
+
 Base = declarative_base()
 
 class Database:

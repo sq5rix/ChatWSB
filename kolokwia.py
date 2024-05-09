@@ -1,10 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy import UniqueConstraint, ForeignKey
 from sqlalchemy.orm import relationship
-from dbclass import Database, Base
-
-# plik sqlite3
-DB_FILE = 'sqlite:///kolokwia.db'
+from dbclass import Database, Base, DB_FILE
 
 class Kolokwia(Base):
     __tablename__ = 'kolokwia'
@@ -35,5 +32,16 @@ class Tematy(Base):
 
     def __repr__(self):
         return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
+
+#class Metryki(Base):
+#    __tablename__ = 'tematy'
+#    id = Column(Integer, primary_key=True)
+#    kolokwium_id = Column(Integer)
+#    temat_id     = Column(Integer)
+#    distance     = Column(Integer)
+#
+#    def __repr__(self):
+#        return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
+
 
 

@@ -24,7 +24,7 @@ patterns = {
     'pytanie': r'Pytanie:(.*?)\n',
     'domena': r'Domena: (.*?)$',
     'zrodla': r'Źródła: (.*?)\n',
-    'tresc': r'Treść.*?:(.*?)\n'
+    'tresc': r'Treść odpowiedzi:(.*)'
 }
 
 
@@ -58,6 +58,15 @@ def read_all_files():
             all_texts += info['text']
     return all_texts
 
+def test_file_read():
+    all_texts = ""
+    for filename in os.listdir(pdf_directory):
+        if filename.endswith('.pdf'):
+            file_path = os.path.join(pdf_directory, filename)
+            info = extract_information(file_path)
+            print('info : ', info["tresc"])
+
 if __name__ == "__main__":
-    all = read_all_files()
+    #all = read_all_files()
+    test_file_read()
 

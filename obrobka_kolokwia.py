@@ -1,5 +1,5 @@
-from dbclass import Database, Base
-from kolokwia import Tematy, DB_FILE
+from dbclass import Database, Base, DB_FILE
+from kolokwia import Tematy
 from czyt_pdf import read_all_files
 from prompts import odp_kolokwium_prompt
 from imchat import infer_chat
@@ -20,7 +20,7 @@ def main():
     db = Database(DB_FILE)
     read_all_files()
     przelicz_pytania()
-    sel = db.exec_query('select pytanie from kolokwia')
+    sel = db.exec_query('select tresc from kolokwia')
     for i in sel:
         print('sel : ', i[0][:38] )
     tem = db.exec_query('select aitext from tematy')
@@ -29,3 +29,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
