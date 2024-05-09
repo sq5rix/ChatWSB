@@ -1,4 +1,4 @@
-linki do kodow i artykulow wykrywanie plagiatow 
+linki do kodow i artykulow wykrywanie plagiatow
 
 https://github.com/jpwahle/iconf22-paraphrase
 https://huggingface.co/jpwahle/longformer-base-plagiarism-detection/commit/cc8e4be59dde038a588dcd200570f106575f719b
@@ -16,3 +16,8 @@ https://arxiv.org/abs/2312.17289
 https://arxiv.org/abs/2212.06933
 https://arxiv.org/abs/2310.15264
 https://arxiv.org/abs/2002.04279
+
+odległości tekstów:
+https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html
+https://docs.scipy.org/doc/scipy/reference/spatial.distance.html
+
