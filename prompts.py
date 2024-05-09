@@ -18,4 +18,5 @@ odp_kolokwium_prompt = """
 Jako inżynier IoT odpowiedz_krotko na poniższe pytanie:
 
 """
-
+check_prompt = """ jako inżynier IoT powiedz krótko, bez szczegółów, czy to ChatGPT napisał ten tekst? : """
+compare_prompt = """ porównaj z tym tekstem napisanym przez ChatGPT :"""
