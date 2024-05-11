@@ -18,6 +18,10 @@ https://arxiv.org/abs/2310.15264
 https://arxiv.org/abs/2002.04279
 
 odległości tekstów:
+https://github.com/harpribot/nlp-metrics
 https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html
 https://docs.scipy.org/doc/scipy/reference/spatial.distance.html
 
+metrics:
+https://en.wikipedia.org/wiki/ROUGE_(metric)#Metrics
+https://www.geeksforgeeks.org/nlp-bleu-score-for-evaluating-neural-machine-translation-python/
