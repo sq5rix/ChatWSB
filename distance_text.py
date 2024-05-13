@@ -1,5 +1,4 @@
 import spacy
-from scipy.spatial.distance import euclidean
 
 # Load the medium English model
 nlp = spacy.load("pl_core_news_lg")
@@ -16,15 +15,21 @@ def text_to_vector(text):
         return None
 
 
-def policz_odleglosc(text1, text2):
-# Convert texts to vectors
+def policz_odleglosc(text1, text2, fun):
+    """
+    Convert texts to vectors
+    Measure distance using fun
+    """
     vector1 = text_to_vector(text1)
     vector2 = text_to_vector(text2)
 
-    if vector1 is not None and vector2 is not None:
-        # Calculate Euclidean distance
-        distance = euclidean(vector1, vector2)
-        return distance
+    if fun.__name__ in ['calculate_bleu', 'calculate_rouge']:
+        return fun(text1, text2)
+    else:
+        if vector1 is not None and vector2 is not None:
+            # Calculate Euclidean distance
+            distance = fun(vector1, vector2)
+            return round(distance, 4)
 
 
 def main():

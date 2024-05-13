@@ -1,0 +1,24 @@
+nazwa_pliku  :  Doc1.pdf
+dst :  calculate_bleu 4.72663372895535e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.5686274509803921, recall=0.08100558659217877, fmeasure=0.14180929095354522), 'rouge2': Score(precision=0.14, recall=0.0196078431372549, fmeasure=0.0343980343980344), 'rougeL': Score(precision=0.45098039215686275, recall=0.06424581005586592, fmeasure=0.11246943765281174)}
+dst :  euclidean 6.33
+dst :  braycurtis 0.175
+dst :  chebyshev 1.3456
+nazwa_pliku  :  Doc2.pdf
+dst :  calculate_bleu 0.01863976912675849
+dst :  calculate_rouge {'rouge1': Score(precision=0.4520547945205479, recall=0.19130434782608696, fmeasure=0.26883910386965376), 'rouge2': Score(precision=0.09655172413793103, recall=0.040697674418604654, fmeasure=0.0572597137014315), 'rougeL': Score(precision=0.2054794520547945, recall=0.08695652173913043, fmeasure=0.12219959266802442)}
+dst :  euclidean 7.0396
+dst :  braycurtis 0.2579
+dst :  chebyshev 1.2776
+nazwa_pliku  :  Doc3.pdf
+dst :  calculate_bleu 0.00021695894759941352
+dst :  calculate_rouge {'rouge1': Score(precision=0.47619047619047616, recall=0.07633587786259542, fmeasure=0.13157894736842105), 'rouge2': Score(precision=0.12195121951219512, recall=0.019157088122605363, fmeasure=0.03311258278145695), 'rougeL': Score(precision=0.35714285714285715, recall=0.05725190839694656, fmeasure=0.09868421052631579)}
+dst :  euclidean 8.703
+dst :  braycurtis 0.2825
+dst :  chebyshev 1.6313
+nazwa_pliku  :  Doc4.pdf
+dst :  calculate_bleu 0.0007583454888778507
+dst :  calculate_rouge {'rouge1': Score(precision=0.3, recall=0.07420494699646643, fmeasure=0.11898016997167137), 'rouge2': Score(precision=0.028985507246376812, recall=0.0070921985815602835, fmeasure=0.011396011396011395), 'rougeL': Score(precision=0.2, recall=0.04946996466431095, fmeasure=0.07932011331444759)}
+dst :  euclidean 6.1173
+dst :  braycurtis 0.2091
+dst :  chebyshev 1.123
