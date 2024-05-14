@@ -1,3 +1,9 @@
+#artykuł o ocenie prac studentów
+https://www.researchgate.net/publication/372345101_USING_NATURAL_LANGUAGE_PROCESSING_NLP_TO_MARK_ASSIGNMENTS_BASED_ON_MODEL_ANSWERS_THE_DATASET_CARRIES_RESPONSES_FROM_STUDENTS_AND_THEIR_MARKS_AWARDED_BY_THE_LECTURER
+
+# wytłumaczenie bleu rouge
+https://clementbm.github.io/theory/2021/12/23/rouge-bleu-scores.html
+
 #linki do kodow i artykulow wykrywanie plagiatow
 
 https://github.com/jpwahle/iconf22-paraphrase
@@ -21,6 +27,4 @@ odległości tekstów:
 https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html
 https://docs.scipy.org/doc/scipy/reference/spatial.distance.html
 
-# wytłumaczenie bleu rouge
-https://clementbm.github.io/theory/2021/12/23/rouge-bleu-scores.html
 
