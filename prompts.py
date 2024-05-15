@@ -1,6 +1,7 @@
+GPT_4o = 'gpt-4o'
 GPT_4 = 'gpt-4-0613'
 GPT_T = 'gpt-3.5-turbo'
-GPT_MODEL = GPT_4
+GPT_MODEL = GPT_4o
 
 general_prompt = """
 

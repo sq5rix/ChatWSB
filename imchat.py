@@ -32,8 +32,9 @@ def infer_chat(prompt):
     return response.choices[0].message.content
 
 def main():
-    generate_text = infer_chat(f"Treść: {read_all_files()} Pytanie: {general_prompt}")
-    print(generated_text )
+    #generate_text = infer_chat(f"Treść: {read_all_files()} Pytanie: {general_prompt}")
+    e = infer_chat('hello what is a conundrum?')
+    print(e)
 
 if __name__ == "__main__":
     main()
