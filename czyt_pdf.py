@@ -11,6 +11,7 @@ Parsuj i policz digest dla każdego pliku i jeśli
 unikalny umieść w tabeli
 """
 # Directory containing the PDF files
+#pdf_directory = 'PlikiWejsciowe'
 pdf_directory = 'PlikiWejsciowe'
 
 # Regular expression patterns to match specific information
@@ -27,10 +28,13 @@ patterns = {
     'tresc': r'Treść odpowiedzi:(.*)'
 }
 
+def read_txt(pdf_path):
+    with open(pdf_path, 'r') as f:
+        text = f.read()
+    return text
 
-def extract_information(pdf_path):
+def extract_information(text):
         # Dictionary to hold the extracted data
-        text = read_pdf(pdf_path)
         extracted_data = {}
         # Search for each pattern in the text and extract the corresponding information
         for key, pattern in patterns.items():
@@ -41,32 +45,32 @@ def extract_information(pdf_path):
         extracted_data['text'] = text
         return extracted_data
 
-def read_all_files():
+def read_all_files(pdf_directory):
     all_texts = ""
     db = Database(DB_FILE)
     for filename in os.listdir(pdf_directory):
         if filename.endswith('.pdf'):
             file_path = os.path.join(pdf_directory, filename)
-            info = extract_information(file_path)
-            info['digest'] = str(calculate_digest(info['text']))
-            info['nazwa_pliku'] = filename
-            is_digest = db.session.query(
-                    Kolokwia
-                ).filter_by(digest=info['digest']).first()
-            if not is_digest:
-                db.create_record(Kolokwia,info)
-            all_texts += info['text']
+            text = read_pdf(pdf_path)
+        else if filename.endswith('.txt'):
+            file_path = os.path.join(pdf_directory, filename)
+            text = read_txt(pdf_path)
+        info = extract_information(text)
+        info['digest'] = str(calculate_digest(info['text']))
+        info['nazwa_pliku'] = filename
+        is_digest = db.session.query(
+                Kolokwia
+            ).filter_by(digest=info['digest']).first()
+        if not is_digest:
+            db.create_record(Kolokwia,info)
+        all_texts += info['text']
     return all_texts
 
+
 def test_file_read():
-    all_texts = ""
-    for filename in os.listdir(pdf_directory):
-        if filename.endswith('.pdf'):
-            file_path = os.path.join(pdf_directory, filename)
-            info = extract_information(file_path)
-            print('info : ', info["tresc"])
+        all_text = read_all_files(pdf_directory)
 
 if __name__ == "__main__":
-    #all = read_all_files()
-    test_file_read()
+    a = read_all_files()
+    print('a : ', a )
 
