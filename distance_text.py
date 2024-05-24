@@ -1,6 +1,7 @@
 import spacy
 
 # Load the medium English model
+spacy.load('pl_core_news_lg')
 nlp = spacy.load("pl_core_news_lg")
 
 # Function to convert text to a vector

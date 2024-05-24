@@ -6,14 +6,13 @@ from dbclass import Database, Base, DB_FILE
 class Kolokwia(Base):
     __tablename__ = 'kolokwia'
 
-    id          = Column(Integer, primary_key=True)
     data        = Column(String)
     imie        = Column(String)
     nazwisko    = Column(String)
     rok         = Column(String)
     grupa       = Column(String)
     id_studenta = Column(String, nullable=False)
-    digest      = Column(String, nullable=False, unique=True)
+    digest      = Column(String, nullable=False, unique=True, primary_key=True)
     nazwa_pliku = Column(String)
     pytanie     = Column(String)
     domena      = Column(String)
