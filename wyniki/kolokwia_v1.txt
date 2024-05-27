@@ -1,112 +1,141 @@
-[tom@tom-ge72mvr7rg ChatWSB]$ /home/tom/ChatWSB/venv/bin/python3 /home/tom/ChatWSB/odleglosci.py
 nazwa_pliku  :  Czaja.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.5280898876404494, recall=0.11058823529411765, fmeasure=0.18287937743190663), 'rouge2
-': Score(precision=0.14772727272727273, recall=0.030660377358490566, fmeasure=0.05078125), 'rougeL': Score(precision=0.24719101123595505
-, recall=0.05176470588235294, fmeasure=0.08560311284046693)}
+dst :  calculate_bleu 0.0014786345410973773
+dst :  calculate_rouge {'rouge1': Score(precision=0.5280898876404494, recall=0.11058823529411765, fmeasur
+e=0.18287937743190663), 'rouge2': Score(precision=0.14772727272727273, recall=0.030660377358490566, fmeas
+ure=0.05078125), 'rougeL': Score(precision=0.24719101123595505, recall=0.05176470588235294, fmeasure=0.08
+560311284046693)}
 dst :  euclidean 13.2076
 dst :  braycurtis 0.4686
 dst :  chebyshev 2.9317
 nazwa_pliku  :  Gawlik.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.8085106382978723, recall=0.08296943231441048, fmeasure=0.1504950495049505), 'rouge2'
-: Score(precision=0.3548387096774194, recall=0.036065573770491806, fmeasure=0.06547619047619048), 'rougeL': Score(precision=0.4255319148
-93617, recall=0.043668122270742356, fmeasure=0.0792079207920792)}
+dst :  calculate_bleu 0.0001968981540298952
+dst :  calculate_rouge {'rouge1': Score(precision=0.8085106382978723, recall=0.08296943231441048, fmeasur
+e=0.1504950495049505), 'rouge2': Score(precision=0.3548387096774194, recall=0.036065573770491806, fmeasur
+e=0.06547619047619048), 'rougeL': Score(precision=0.425531914893617, recall=0.043668122270742356, fmeasur
+e=0.0792079207920792)}
 dst :  euclidean 8.0747
 dst :  braycurtis 0.2858
 dst :  chebyshev 1.4604
 nazwa_pliku  :  Gołąbiewska.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.37272727272727274, recall=0.03821062441752097, fmeasure=0.06931530008453085), 'rouge
-2': Score(precision=0.03669724770642202, recall=0.0037313432835820895, fmeasure=0.006773920406435226), 'rougeL': Score(precision=0.19090
-909090909092, recall=0.0195712954333644, fmeasure=0.03550295857988166)}
+dst :  calculate_bleu 2.0794156785223934e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.37272727272727274, recall=0.03821062441752097, fmeasu
+re=0.06931530008453085), 'rouge2': Score(precision=0.03669724770642202, recall=0.0037313432835820895, fme
+asure=0.006773920406435226), 'rougeL': Score(precision=0.19090909090909092, recall=0.0195712954333644, fm
+easure=0.03550295857988166)}
 dst :  euclidean 15.8341
 dst :  braycurtis 0.5919
 dst :  chebyshev 3.6152
 nazwa_pliku  :  Inczewski.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.5121951219512195, recall=0.11842105263157894, fmeasure=0.19236641221374046), 'rouge2
-': Score(precision=0.06557377049180328, recall=0.015065913370998116, fmeasure=0.024502297090352218), 'rougeL': Score(precision=0.2439024
-3902439024, recall=0.05639097744360902, fmeasure=0.0916030534351145)}
+dst :  calculate_bleu 0.0022641583919320845
+dst :  calculate_rouge {'rouge1': Score(precision=0.5121951219512195, recall=0.11842105263157894, fmeasur
+e=0.19236641221374046), 'rouge2': Score(precision=0.06557377049180328, recall=0.015065913370998116, fmeas
+ure=0.024502297090352218), 'rougeL': Score(precision=0.24390243902439024, recall=0.05639097744360902, fme
+asure=0.0916030534351145)}
 dst :  euclidean 10.5034
 dst :  braycurtis 0.3742
 dst :  chebyshev 2.376
 nazwa_pliku  :  Kowalski.pdf
+dst :  calculate_bleu None
 dst :  calculate_rouge None
 dst :  euclidean None
 dst :  braycurtis None
 dst :  chebyshev None
 nazwa_pliku  :  Młyńska.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.4659090909090909, recall=0.05163727959697733, fmeasure=0.09297052154195011), 'rouge2
-': Score(precision=0.05747126436781609, recall=0.006305170239596469, fmeasure=0.011363636363636364), 'rougeL': Score(precision=0.3181818
-181818182, recall=0.03526448362720403, fmeasure=0.0634920634920635)}
+dst :  calculate_bleu 4.158299902745643e-06
+dst :  calculate_rouge {'rouge1': Score(precision=0.4659090909090909, recall=0.05163727959697733, fmeasur
+e=0.09297052154195011), 'rouge2': Score(precision=0.05747126436781609, recall=0.006305170239596469, fmeas
+ure=0.011363636363636364), 'rougeL': Score(precision=0.3181818181818182, recall=0.03526448362720403, fmea
+sure=0.0634920634920635)}
 dst :  euclidean 6.9525
 dst :  braycurtis 0.222
 dst :  chebyshev 1.2112
 nazwa_pliku  :  Młyński.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.7625, recall=0.09501557632398754, fmeasure=0.1689750692520776), 'rouge2': Score(prec
-ision=0.31645569620253167, recall=0.0390015600624025, fmeasure=0.06944444444444443), 'rougeL': Score(precision=0.425, recall=0.052959501
-5576324, fmeasure=0.09418282548476455)}
+dst :  calculate_bleu 0.00030709100852925657
+dst :  calculate_rouge {'rouge1': Score(precision=0.7625, recall=0.09501557632398754, fmeasure=0.16897506
+92520776), 'rouge2': Score(precision=0.31645569620253167, recall=0.0390015600624025, fmeasure=0.069444444
+44444443), 'rougeL': Score(precision=0.425, recall=0.0529595015576324, fmeasure=0.09418282548476455)}
 dst :  euclidean 5.3799
 dst :  braycurtis 0.1705
 dst :  chebyshev 1.1323
 nazwa_pliku  :  Reimann.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.22784810126582278, recall=0.05217391304347826, fmeasure=0.0849056603773585), 'rouge2
-': Score(precision=0.02564102564102564, recall=0.005813953488372093, fmeasure=0.00947867298578199), 'rougeL': Score(precision=0.16455696
-202531644, recall=0.03768115942028986, fmeasure=0.06132075471698114)}
+dst :  calculate_bleu 0.001028310871555318
+dst :  calculate_rouge {'rouge1': Score(precision=0.22784810126582278, recall=0.05217391304347826, fmeasu
+re=0.0849056603773585), 'rouge2': Score(precision=0.02564102564102564, recall=0.005813953488372093, fmeas
+ure=0.00947867298578199), 'rougeL': Score(precision=0.16455696202531644, recall=0.03768115942028986, fmea
+sure=0.06132075471698114)}
 dst :  euclidean 21.8689
 dst :  braycurtis 0.837
 dst :  chebyshev 3.6508
 nazwa_pliku  :  Samultsau.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.43790849673202614, recall=0.08556832694763729, fmeasure=0.14316239316239315), 'rouge
-2': Score(precision=0.09868421052631579, recall=0.01918158567774936, fmeasure=0.032119914346895075), 'rougeL': Score(precision=0.2418300
-6535947713, recall=0.04725415070242656, fmeasure=0.07905982905982906)}
+dst :  calculate_bleu 0.0022111202137701912
+dst :  calculate_rouge {'rouge1': Score(precision=0.43790849673202614, recall=0.08556832694763729, fmeasu
+re=0.14316239316239315), 'rouge2': Score(precision=0.09868421052631579, recall=0.01918158567774936, fmeas
+ure=0.032119914346895075), 'rougeL': Score(precision=0.24183006535947713, recall=0.04725415070242656, fme
+asure=0.07905982905982906)}
 dst :  euclidean 17.3615
 dst :  braycurtis 0.6008
 dst :  chebyshev 3.4704
 nazwa_pliku  :  Shakhbazian.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.568, recall=0.11993243243243243, fmeasure=0.19804741980474194), 'rouge2': Score(prec
-ision=0.1532258064516129, recall=0.032148900169204735, fmeasure=0.053146853146853135), 'rougeL': Score(precision=0.256, recall=0.0540540
-5405405406, fmeasure=0.0892608089260809)}
+dst :  calculate_bleu 0.0023339173472644863
+dst :  calculate_rouge {'rouge1': Score(precision=0.568, recall=0.11993243243243243, fmeasure=0.198047419
+80474194), 'rouge2': Score(precision=0.1532258064516129, recall=0.032148900169204735, fmeasure=0.05314685
+3146853135), 'rougeL': Score(precision=0.256, recall=0.05405405405405406, fmeasure=0.0892608089260809)}
 dst :  euclidean 14.0703
 dst :  braycurtis 0.461
 dst :  chebyshev 3.1734
 nazwa_pliku  :  Skrzypczak.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.5606060606060606, recall=0.05218617771509168, fmeasure=0.09548387096774194), 'rouge2
-': Score(precision=0.2153846153846154, recall=0.01977401129943503, fmeasure=0.03622250970245796), 'rougeL': Score(precision=0.3939393939
-393939, recall=0.036671368124118475, fmeasure=0.06709677419354838)}
+dst :  calculate_bleu 1.9489528426776877e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.5606060606060606, recall=0.05218617771509168, fmeasur
+e=0.09548387096774194), 'rouge2': Score(precision=0.2153846153846154, recall=0.01977401129943503, fmeasur
+e=0.03622250970245796), 'rougeL': Score(precision=0.3939393939393939, recall=0.036671368124118475, fmeasu
+re=0.06709677419354838)}
 dst :  euclidean 5.5093
 dst :  braycurtis 0.1812
 dst :  chebyshev 0.952
 nazwa_pliku  :  Sobisz.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.4485981308411215, recall=0.06442953020134229, fmeasure=0.11267605633802817), 'rouge2
-': Score(precision=0.03773584905660377, recall=0.005376344086021506, fmeasure=0.009411764705882352), 'rougeL': Score(precision=0.2523364
-485981308, recall=0.036241610738255034, fmeasure=0.06338028169014084)}
+dst :  calculate_bleu 5.521416834364674e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.4485981308411215, recall=0.06442953020134229, fmeasur
+e=0.11267605633802817), 'rouge2': Score(precision=0.03773584905660377, recall=0.005376344086021506, fmeas
+ure=0.009411764705882352), 'rougeL': Score(precision=0.2523364485981308, recall=0.036241610738255034, fme
+asure=0.06338028169014084)}
 dst :  euclidean 7.8695
 dst :  braycurtis 0.2601
 dst :  chebyshev 1.2978
 nazwa_pliku  :  Tyszka.pdf
 nazwa_pliku  :  Urbanowicz.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.4943820224719101, recall=0.04395604395604396, fmeasure=0.08073394495412846), 'rouge2
-': Score(precision=0.13636363636363635, recall=0.012, fmeasure=0.022058823529411763), 'rougeL': Score(precision=0.2808988764044944, reca
-ll=0.024975024975024976, fmeasure=0.045871559633027525)}
+dst :  calculate_bleu 1.3402939812939488e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.4943820224719101, recall=0.04395604395604396, fmeasur
+e=0.08073394495412846), 'rouge2': Score(precision=0.13636363636363635, recall=0.012, fmeasure=0.022058823
+529411763), 'rougeL': Score(precision=0.2808988764044944, recall=0.024975024975024976, fmeasure=0.0458715
+59633027525)}
 dst :  euclidean 9.6551
 dst :  braycurtis 0.3719
 dst :  chebyshev 2.2442
 nazwa_pliku  :  Vladimirov.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.6818181818181818, recall=0.0391644908616188, fmeasure=0.07407407407407408), 'rouge2'
-: Score(precision=0.3488372093023256, recall=0.0196078431372549, fmeasure=0.03712871287128713), 'rougeL': Score(precision=0.545454545454
-5454, recall=0.031331592689295036, fmeasure=0.05925925925925925)}
+dst :  calculate_bleu 3.2852872557849255e-09
+dst :  calculate_rouge {'rouge1': Score(precision=0.6818181818181818, recall=0.0391644908616188, fmeasure
+=0.07407407407407408), 'rouge2': Score(precision=0.3488372093023256, recall=0.0196078431372549, fmeasure=
+0.03712871287128713), 'rougeL': Score(precision=0.5454545454545454, recall=0.031331592689295036, fmeasure
+=0.05925925925925925)}
 dst :  euclidean 5.3592
 dst :  braycurtis 0.1903
 dst :  chebyshev 1.1215
 nazwa_pliku  :  Warias.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.7205882352941176, recall=0.057511737089201875, fmeasure=0.10652173913043478), 'rouge
-2': Score(precision=0.34328358208955223, recall=0.02702702702702703, fmeasure=0.05010893246187364), 'rougeL': Score(precision=0.42647058
-82352941, recall=0.03403755868544601, fmeasure=0.06304347826086956)}
+dst :  calculate_bleu 1.137547304570163e-05
+dst :  calculate_rouge {'rouge1': Score(precision=0.7205882352941176, recall=0.057511737089201875, fmeasu
+re=0.10652173913043478), 'rouge2': Score(precision=0.34328358208955223, recall=0.02702702702702703, fmeas
+ure=0.05010893246187364), 'rougeL': Score(precision=0.4264705882352941, recall=0.03403755868544601, fmeas
+ure=0.06304347826086956)}
 dst :  euclidean 4.3821
 dst :  braycurtis 0.1538
 dst :  chebyshev 0.7766
 nazwa_pliku  :  Zubelewicz.pdf
-dst :  calculate_rouge {'rouge1': Score(precision=0.5625, recall=0.030235162374020158, fmeasure=0.057385759829968117), 'rouge2': Score(p
-recision=0.19148936170212766, recall=0.010089686098654708, fmeasure=0.019169329073482427), 'rougeL': Score(precision=0.3958333333333333,
- recall=0.02127659574468085, fmeasure=0.04038257173219979)}
+dst :  calculate_bleu 5.133867146001097e-09
+dst :  calculate_rouge {'rouge1': Score(precision=0.5625, recall=0.030235162374020158, fmeasure=0.0573857
+59829968117), 'rouge2': Score(precision=0.19148936170212766, recall=0.010089686098654708, fmeasure=0.0191
+69329073482427), 'rougeL': Score(precision=0.3958333333333333, recall=0.02127659574468085, fmeasure=0.040
+38257173219979)}
 dst :  euclidean 10.1317
 dst :  braycurtis 0.3152
 dst :  chebyshev 1.4933
+nazwa_pliku  :  Czapiewski.pdf

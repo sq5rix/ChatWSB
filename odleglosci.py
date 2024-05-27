@@ -19,16 +19,16 @@ def przelicz_odleglosci(db):
         else:
             tresc_ai
         for j in tresc_ai:
-            #for fun in METRYKI:
-            #    try:
-            #        dst = policz_odleglosc(i[1], j[0], fun)
-            #        print('dst : ', fun.__name__, dst)
-            #    except:
-            #        print('błąd')
-            res = infer_chat(f"{check_prompt}: {i[1]}")
-            print('res : ', res )
-            res = infer_chat(f"{check_prompt}: {i[1]} {compare_prompt}{j[0]}")
-            print('res : ', res )
+            for fun in METRYKI:
+                try:
+                    dst = policz_odleglosc(i[1], j[0], fun)
+                    print('dst : ', fun.__name__, dst)
+                except:
+                    print('błąd')
+            #res = infer_chat(f"{check_prompt}: {i[1]}")
+            #print('res : ', res )
+            #res = infer_chat(f"{check_prompt}: {i[1]} {compare_prompt}{j[0]}")
+            #print('res : ', res )
 
 
 przelicz_odleglosci(db)
