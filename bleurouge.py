@@ -22,11 +22,9 @@ def main():
     reference_text = "The quick brown fox jumps over the lazy dog."
     candidate_text = "The fast brown fox leaps over the lazy dog."
 
-# Calculate BLEU score
     bleu = calculate_bleu(reference_text, candidate_text)
     print(f"BLEU Score: {bleu}")
 
-# Calculate ROUGE scores
     rouge = calculate_rouge(reference_text, candidate_text)
     print(f"ROUGE Scores: {rouge}")
 

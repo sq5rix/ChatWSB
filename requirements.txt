@@ -10,4 +10,4 @@ psycopg2-binary
 nltk
 rouge_score
 chardet
-
+rouge-score
