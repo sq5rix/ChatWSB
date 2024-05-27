@@ -1,7 +1,7 @@
 import spacy
+from bleurouge import calculate_bleu, calculate_rouge
 
 # Load the medium English model
-spacy.load('pl_core_news_lg')
 nlp = spacy.load("pl_core_news_lg")
 
 # Function to convert text to a vector
@@ -21,6 +21,10 @@ def policz_odleglosc(text1, text2, fun):
     Convert texts to vectors
     Measure distance using fun
     """
+    if not text1:
+        return None
+    if not text2:
+        return None
     vector1 = text_to_vector(text1)
     vector2 = text_to_vector(text2)
 
@@ -37,7 +41,7 @@ def main():
     # Text inputs
     text1 = "Example text one."
     text2 = "Example text two."
-    dist = policz_odleglosc(text1, text2)
+    dist = policz_odleglosc(text1, text2, calculate_bleu)
     print('dist : ', dist )
 
 if __name__ == "__main__":

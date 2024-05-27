@@ -1,0 +1,5 @@
+# błąd przy bleu na Python 3.12
+
+https://github.com/nltk/nltk/issues/3232
+
+

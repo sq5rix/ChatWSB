@@ -18,7 +18,7 @@ def przelicz_pytania():
 
 def main():
     db = Database(DB_FILE)
-    #przelicz_pytania()
+    przelicz_pytania()
     sel = db.exec_query('select tresc from kolokwia')
     for i in sel:
         try:

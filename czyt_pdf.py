@@ -46,7 +46,8 @@ def utworz_rzad_tabeli(db, info):
             Kolokwia
         ).filter_by(digest=info['digest']).first()
     if not is_digest:
-        db.create_record(Kolokwia,info)
+        rec = db.create_record(Kolokwia,info)
+        print('rec : ', rec )
 
 def read_all_files(pdf_directory):
     all_texts = ""
@@ -62,6 +63,10 @@ def read_all_files(pdf_directory):
             info = extract_information(text)
             info['nazwa_pliku'] = filename
             info['digest'] = str(calculate_digest(text))
+            if info['tresc']:
+                info['tresc'] = info['tresc'].strip()
+            else:
+                print('pusta tresc w ',info['nazwa_pliku'])
         except Exception as e:
             print('file_path : ', file_path )
             print(e)
@@ -71,10 +76,22 @@ def read_all_files(pdf_directory):
             print('file_path : ', file_path )
             print(e)
 
+def read_one_files(filename):
+    db = Database(DB_FILE)
+    all_texts = ""
+    file_path = os.path.join(pdf_directory, filename)
+    text = read_pdf(file_path)
+    info = extract_information(text)
+    info['nazwa_pliku'] = filename
+    info['digest'] = str(calculate_digest(text))
+    print('info["digest"]: ', info['digest'])
+    utworz_rzad_tabeli(db, info)
+
 
 def test_file_read():
         read_all_files(pdf_directory)
 
 if __name__ == "__main__":
-    all_text = read_all_files(pdf_directory)
+    read_one_files('Czapiewski.pdf')
+    #all_text = read_all_files(pdf_directory)
 
