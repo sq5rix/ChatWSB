@@ -58,7 +58,8 @@ def calculate_rouge_explain(reference, candidate):
 def main():
     # Text inputs
     text1 = "Example text one."
-    text2 = "Example text two."
+    text2 = "Example text one."
+    calculate_rouge_explain(text2, text1)
 
 if __name__ == "__main__":
     main()
