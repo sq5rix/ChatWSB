@@ -2,7 +2,7 @@ import os
 import re
 
 from dbclass import Database, Base
-from kolokwia import Kolokwia, DB_FILE
+from kolokwia import Kolokwia, DB_FILE, PDF_DIRECTORY
 from utils import calculate_digest, read_pdf, read_text_file
 
 """
@@ -10,10 +10,6 @@ Przeczytaj wszystkie pliki z folderu pdf_directory
 Parsuj i policz digest dla każdego pliku i jeśli
 unikalny umieść w tabeli
 """
-# Directory containing the PDF files
-#pdf_directory = 'PlikiWejsciowe'
-#pdf_directory = 'PlikiWejsciowe'
-pdf_directory = 'DaneWrazliwe/kolokwia_pdf/drive-download-20240524T155103Z-001/'
 
 # Regular expression patterns to match specific information
 patterns = {
@@ -89,9 +85,9 @@ def read_one_files(filename):
 
 
 def test_file_read():
-        read_all_files(pdf_directory)
+        read_all_files(PDF_DIRECTORY)
 
 if __name__ == "__main__":
-    #read_one_files('Czapiewski.pdf')
-    all_text = read_all_files(pdf_directory)
+    read_one_files('Czapiewski.pdf')
+    #all_text = read_all_files(pdf_directory)
 

@@ -1,7 +1,11 @@
+import json
+from pprint import pprint
 from dbclass import Database, Base, DB_FILE
-from kolokwia import Tematy
+from czyt_pdf import read_all_files
+from kolokwia import Tematy, PDF_DIRECTORY, Kolokwia
 from prompts import odp_kolokwium_prompt
 from imchat import infer_chat
+from odleglosci import przelicz_odleglosci
 
 def przelicz_pytania():
     db = Database(DB_FILE)
@@ -15,22 +19,28 @@ def przelicz_pytania():
             print('odp : ', odp )
             db.create_record(Tematy, {'pytanie':i[0], 'aitext':odp})
 
+def drukuj_wynik():
+    db = Database(DB_FILE)
+    sel = db.session.query(Kolokwia).all()
+    for i in sel:
+        print('sel : ', i.nazwisko, i.distance)
+    #tem = db.exec_query('select aitext from tematy')
+    #for t in tem:
+    #    try:
+    #        print('tem : ', t[0].strip()[:38])
+    #    except:
+    #        print('cos nie tak')
+
+def dodaj_odleglosci():
+    odl = przelicz_odleglosci()
+
 
 def main():
     db = Database(DB_FILE)
-    przelicz_pytania()
-    sel = db.exec_query('select tresc from kolokwia')
-    for i in sel:
-        try:
-            print('sel : ', i[0][:38] )
-        except:
-            print('cos nie tak')
-    tem = db.exec_query('select aitext from tematy')
-    for t in tem:
-        try:
-            print('tem : ', t[0].strip()[:38])
-        except:
-            print('cos nie tak')
+    #txt = read_all_files(PDF_DIRECTORY)
+    #przelicz_pytania()
+    #dodaj_odleglosci()
+    drukuj_wynik()
 
 if __name__ == "__main__":
     main()

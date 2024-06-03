@@ -45,6 +45,9 @@ def policz_rouge(text1, text2):
     return distance
 
 def calculate_rouge_explain(reference, candidate):
+    """
+    policz rouge z wyjaśnieniem
+    """
     if not reference:
         return None
     if not candidate:
@@ -52,8 +55,7 @@ def calculate_rouge_explain(reference, candidate):
     scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
     scores = scorer.score(reference, candidate)
     rouge_scores = calculate_rouge(reference, candidate)
-    print(f"ROUGE-1 Score: {rouge_scores['rouge1'].fmeasure:.2f}")
-    print(f"ROUGE-L Score: {rouge_scores['rougeL'].fmeasure:.2f}")
+    return {'rouge_1':round(rouge_scores['rouge1'].fmeasure,3), 'rouge_L':round(rouge_scores['rougeL'].fmeasure,3)}
 
 def main():
     # Text inputs

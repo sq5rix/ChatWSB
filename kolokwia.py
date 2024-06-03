@@ -1,7 +1,12 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, PickleType
 from sqlalchemy import UniqueConstraint, ForeignKey
 from sqlalchemy.orm import relationship
 from dbclass import Database, Base, DB_FILE
+
+# Directory containing the PDF files
+#PDF_DIRECTORY = 'PlikiWejsciowe'
+#PDF_DIRECTORY = 'PlikiWejsciowe'
+PDF_DIRECTORY = 'DaneWrazliwe/kolokwia_pdf/drive-download-20240524T155103Z-001/'
 
 class Kolokwia(Base):
     __tablename__ = 'kolokwia'
@@ -19,28 +24,22 @@ class Kolokwia(Base):
     zrodla      = Column(String)
     tresc       = Column(String)
     text        = Column(String)
+    distance    = Column(PickleType)
 
     def __repr__(self):
         return f"<MyModel(imie='{self.imie}', nazwisko={self.nazwisko})>"
 
 class Tematy(Base):
     __tablename__ = 'tematy'
-    id          = Column(Integer, primary_key=True)
-    pytanie = Column(String, unique=True)
-    aitext  = Column(String)
+    temat_id = Column(Integer, primary_key=True)
+    pytanie  = Column(String, unique=True)
+    aitext   = Column(String)
 
     def __repr__(self):
         return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
 
-#class Metryki(Base):
-#    __tablename__ = 'tematy'
-#    id = Column(Integer, primary_key=True)
-#    kolokwium_id = Column(Integer)
-#    temat_id     = Column(Integer)
-#    distance     = Column(Integer)
-#
-#    def __repr__(self):
-#        return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
+    def __repr__(self):
+        return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
 
 
 
