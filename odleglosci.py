@@ -38,5 +38,9 @@ def przelicz_odleglosci(db):
             calculate_rouge_explain(j[0], i[1])
 
 
-przelicz_odleglosci(db)
+def main():
+    przelicz_odleglosci(db)
+
+if __name__ == "__main__":
+    main()
 

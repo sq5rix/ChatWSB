@@ -23,7 +23,7 @@ patterns = {
     'rok': r'Rok: (\d+)$',
     'grupa': r'Grupa: (\w+)$',
     'id_studenta': r'[iI][Dd][ _][Ss]tudent.*?:\s*?(\d+)',
-    'pytanie': r'Pytanie:(.*?)\n',
+    'pytanie': r'[pP]ytanie:(.*?)Tre[śs][ćc]',
     'domena': r'Domena: (.*?)',
     'zrodla': r'Źródła: (.*?)\n',
     'tresc': r'Tre[sś][cć] [Oo]dpowiedzi:(.*)'
@@ -84,7 +84,7 @@ def read_one_files(filename):
     info = extract_information(text)
     info['nazwa_pliku'] = filename
     info['digest'] = str(calculate_digest(text))
-    print('info["digest"]: ', info['digest'])
+    print('info["pytanie"]: ', info['pytanie'])
     utworz_rzad_tabeli(db, info)
 
 
@@ -92,6 +92,6 @@ def test_file_read():
         read_all_files(pdf_directory)
 
 if __name__ == "__main__":
-    read_one_files('Czapiewski.pdf')
-    #all_text = read_all_files(pdf_directory)
+    #read_one_files('Czapiewski.pdf')
+    all_text = read_all_files(pdf_directory)
 
