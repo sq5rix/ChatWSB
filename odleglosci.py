@@ -2,7 +2,7 @@ from dbclass import Database, DB_FILE
 from kolokwia import Kolokwia
 from distance_text import policz_odleglosc
 from imchat import infer_chat
-from prompts import check_prompt, compare_prompt
+from prompts import check_prompt, compare_prompt, ocena_kolokwium
 from scipy.spatial.distance import euclidean, braycurtis, chebyshev
 from bleurouge import calculate_bleu
 from distance_text import calculate_rouge_explain
@@ -43,6 +43,10 @@ def update_record(db, dig, wyn):
         update({'distance': wyn})
     db.session.commit()
 
+def ocen_kolokwium_chatGPT(pytanie, odpowiedz):
+    prompt_kol = ocena_kolokwium(pytanie, odpowiedz)
+    odp = infer_chat(prompt_kol)
+    return odp
 
 def przelicz_odleglosci():
     db = Database(DB_FILE)
@@ -55,6 +59,7 @@ def przelicz_odleglosci():
             tresc_ai = []
         for j in tresc_ai:
             wyniki = policz_odleglosc_tekstow(i[1], j[0])
+            wyniki['ocenaGPT'] = ocen_kolokwium_chatGPT(i[0], i[1]) if i[1] else "1"
             print('wyniki : ', wyniki )
             update_record(db, i[3], wyniki)
 

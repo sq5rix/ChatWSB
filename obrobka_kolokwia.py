@@ -23,7 +23,7 @@ def drukuj_wynik():
     db = Database(DB_FILE)
     sel = db.session.query(Kolokwia).all()
     for i in sel:
-        print('sel : ', i.nazwisko, i.distance)
+        print(i.nazwisko, i.distance)
     #tem = db.exec_query('select aitext from tematy')
     #for t in tem:
     #    try:
