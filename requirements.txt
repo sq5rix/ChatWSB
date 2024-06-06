@@ -11,3 +11,5 @@ nltk
 rouge_score
 chardet
 rouge-score
+streamlit
+

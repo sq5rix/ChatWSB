@@ -38,8 +38,3 @@ class Tematy(Base):
     def __repr__(self):
         return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
 
-    def __repr__(self):
-        return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"
-
-
-
