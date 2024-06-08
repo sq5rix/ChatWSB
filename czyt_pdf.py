@@ -13,16 +13,16 @@ unikalny umieść w tabeli
 
 # Regular expression patterns to match specific information
 patterns = {
-    'data': r'Data: (\d{4}-\d{2}-\d{2})',
-    'imie': r'Imię: (\w+)',
+    'data': r'[dD]ata: (\d{4}-\d{2}-\d{2})',
+    'imie': r'[iI]mię: (\w+)',
     'nazwisko': r'Nazwisko: (\w+)',
     'rok': r'Rok: (\d+)$',
-    'grupa': r'Grupa: (\w+)$',
+    'grupa': r'[gG]rupa: (\w+)$',
     'id_studenta': r'[iI][Dd][ _][Ss]tudent.*?:\s*?(\d+)',
     'pytanie': r'[pP]ytanie:(.*?)Tre[śs][ćc]',
-    'domena': r'Domena: (.*?)',
-    'zrodla': r'Źródła: (.*?)\n',
-    'tresc': r'Tre[sś][cć] [Oo]dpowiedzi:(.*)'
+    'domena': r'[dD]omena: (.*?)',
+    'zrodla': r'[źŹ]ród[lł]a: (.*?)Tre',
+    'tresc': r'[tT]re[sś][cć]:(.*)'
 }
 
 def extract_information(text):

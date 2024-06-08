@@ -29,18 +29,18 @@ wstep = "Jako surowy nauczyciel akademicki oceń kolowium, podane poniżej, na t
 ocen_strukture = f"{ocen}, czy struktura kolokwium jest poprawna"
 ocen_punkty = f"{ocen} czy punkty wyczerpują temat w odpowiedzi"
 ocen_zawartosc_merytoryczna = f"{ocen} zawartość merytoryczną punktów, czy wyczerpują temat z pytania "
-ocen_odnosniki = f"{ocen} czy są odnośniki i linki do zewnętrznych źródeł informacji, takich jak artykuły, strony web, repozytoria gitub"
+ocen_odnosniki = f"{ocen} czy są odnośniki i linki do zewnętrznych źródeł informacji, takich jak artykuły, strony web, repozytoria gitub w:"
 ocen_samodzielnosc = f"{ocen}, czy kolokwium zostało napisane samodzielnie, 1 jeśli jest to kopia ChatGPT, 5 jeśli całkowicie samodzielnie."
 parametry_oceny = f"oceny podaj w formacie: str:[ocena struktury], pun[ocena punktow], zaw[ocena zawartości], odn[ocena odnosników], sam[ocena samodzielności]. Nie uzywaj znakow końca linii tylko przecinków"
 
-def ocena_kolokwium(pyt, odp):
+def ocena_kolokwium(pyt, odp, zrodla):
     return f"""
 
     {wstep}{pyt}
     {ocen_strukture}
     {ocen_punkty}
     {ocen_zawartosc_merytoryczna}
-    {ocen_odnosniki}
+    {ocen_odnosniki}{zrodla}
     {ocen_samodzielnosc}
     {parametry_oceny}
     Oceń poniższe kolokwium: {odp}

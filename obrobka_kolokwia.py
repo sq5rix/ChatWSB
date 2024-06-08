@@ -23,7 +23,7 @@ def drukuj_wynik():
     db = Database(DB_FILE)
     sel = db.session.query(Kolokwia).all()
     for i in sel:
-        print(i.nazwisko, i.distance)
+        print(i.nazwa_pliku, i.distance)
     #tem = db.exec_query('select aitext from tematy')
     #for t in tem:
     #    try:
@@ -37,9 +37,9 @@ def dodaj_odleglosci():
 
 def main():
     db = Database(DB_FILE)
-    #txt = read_all_files(PDF_DIRECTORY)
-    #przelicz_pytania()
-    #dodaj_odleglosci()
+    txt = read_all_files(PDF_DIRECTORY)
+    przelicz_pytania()
+    dodaj_odleglosci()
     drukuj_wynik()
 
 if __name__ == "__main__":

@@ -43,14 +43,14 @@ def update_record(db, dig, wyn):
         update({'distance': wyn})
     db.session.commit()
 
-def ocen_kolokwium_chatGPT(pytanie, odpowiedz):
-    prompt_kol = ocena_kolokwium(pytanie, odpowiedz)
+def ocen_kolokwium_chatGPT(pytanie, odpowiedz, zrodla):
+    prompt_kol = ocena_kolokwium(pytanie, odpowiedz, zrodla)
     odp = infer_chat(prompt_kol)
     return odp
 
 def przelicz_odleglosci():
     db = Database(DB_FILE)
-    tresc_kolokwium = db.exec_query('select pytanie, tresc, nazwa_pliku, digest  from kolokwia ')
+    tresc_kolokwium = db.exec_query('select pytanie, tresc, nazwa_pliku, digest, zrodla from kolokwia ')
     for i in tresc_kolokwium:
         print('nazwa_pliku  : ', i[2])
         if i[0]:
@@ -59,7 +59,7 @@ def przelicz_odleglosci():
             tresc_ai = []
         for j in tresc_ai:
             wyniki = policz_odleglosc_tekstow(i[1], j[0])
-            wyniki['ocenaGPT'] = ocen_kolokwium_chatGPT(i[0], i[1]) if i[1] else "1"
+            wyniki['ocenaGPT'] = ocen_kolokwium_chatGPT(i[0], i[1], i[4]) if i[1] else "1"
             print('wyniki : ', wyniki )
             update_record(db, i[3], wyniki)
 

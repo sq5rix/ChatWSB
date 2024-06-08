@@ -6,7 +6,8 @@ from dbclass import Database, Base, DB_FILE
 # Directory containing the PDF files
 #PDF_DIRECTORY = 'PlikiWejsciowe'
 #PDF_DIRECTORY = 'PlikiWejsciowe'
-PDF_DIRECTORY = 'DaneWrazliwe/kolokwia_pdf/drive-download-20240524T155103Z-001/'
+#PDF_DIRECTORY = 'DaneWrazliwe/kolokwia_pdf/drive-download-20240524T155103Z-001/'
+PDF_DIRECTORY = 'DaneWrazliwe/drive-download-20240608T095515Z-001'
 
 class Kolokwia(Base):
     __tablename__ = 'kolokwia'
