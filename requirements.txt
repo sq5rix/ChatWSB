@@ -12,4 +12,4 @@ rouge_score
 chardet
 rouge-score
 streamlit
-
+openpyxl

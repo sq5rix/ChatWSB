@@ -17,12 +17,12 @@ patterns = {
     'imie': r'[iI]mię: (\w+)',
     'nazwisko': r'Nazwisko: (\w+)',
     'rok': r'Rok: (\d+)$',
-    'grupa': r'[gG]rupa: (\w+)$',
+    'grupa': r'[gG]rupa: (.*?)[iI][Dd]',
     'id_studenta': r'[iI][Dd][ _][Ss]tudent.*?:\s*?(\d+)',
-    'pytanie': r'[pP]ytanie:(.*?)Tre[śs][ćc]',
-    'domena': r'[dD]omena: (.*?)',
-    'zrodla': r'[źŹ]ród[lł]a: (.*?)Tre',
-    'tresc': r'[tT]re[sś][cć]:(.*)'
+    'pytanie': r'[tT]emat [pP]racy:(.*?)[Dd]omena',
+    'domena': r'[dD]omena:(.*?)[ŹźzZ]r[óo]d[lł]a',
+    'zrodla': r'[ŹźzZ]r[oó]d[lł]a: (.*?)Tre',
+    'tresc': r'[tT]re[sś][cć]:(.*)',
 }
 
 def extract_information(text):
