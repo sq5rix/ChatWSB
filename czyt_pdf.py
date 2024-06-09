@@ -87,7 +87,6 @@ def read_one_files(pdf_directory, filename):
     print('info["pytanie"]: ', info['pytanie'])
     utworz_rzad_tabeli(db, info)
 
-
 def test_file_read():
         read_all_files(PDF_DIRECTORY)
 
