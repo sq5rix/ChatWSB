@@ -38,9 +38,9 @@ def dodaj_odleglosci():
 def main():
     db = Database(DB_FILE)
     txt = read_all_files(PDF_DIRECTORY)
-    przelicz_pytania()
-    dodaj_odleglosci()
-    drukuj_wynik()
+    #przelicz_pytania()
+    #dodaj_odleglosci()
+    #drukuj_wynik()
 
 if __name__ == "__main__":
     main()

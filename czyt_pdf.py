@@ -3,7 +3,7 @@ import re
 
 from dbclass import Database, Base
 from kolokwia import Kolokwia, DB_FILE, PDF_DIRECTORY
-from utils import calculate_digest, read_pdf, read_text_file
+from utils import calculate_digest, read_pdf, read_text_file, read_real_pdf
 
 """
 Przeczytaj wszystkie pliki z folderu pdf_directory
@@ -72,11 +72,15 @@ def read_all_files(pdf_directory):
             print('file_path : ', file_path )
             print(e)
 
-def read_one_files(filename):
+def read_one_files(pdf_directory, filename):
     db = Database(DB_FILE)
     all_texts = ""
     file_path = os.path.join(pdf_directory, filename)
-    text = read_pdf(file_path)
+    #text = read_pdf(file_path)
+    text = read_real_pdf(file_path)
+    print('text : ', text)
+    if not text:
+        return
     info = extract_information(text)
     info['nazwa_pliku'] = filename
     info['digest'] = str(calculate_digest(text))
@@ -88,6 +92,6 @@ def test_file_read():
         read_all_files(PDF_DIRECTORY)
 
 if __name__ == "__main__":
-    read_one_files('Czapiewski.pdf')
+    read_one_files(PDF_DIRECTORY, 'Sylwia_Sulkowska_139.pdf')
     #all_text = read_all_files(pdf_directory)
 

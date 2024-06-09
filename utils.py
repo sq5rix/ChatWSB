@@ -15,17 +15,25 @@ def calculate_digest(input_string):
     digest_number = int(hex_digest, 16)
     return digest_number
 
+def read_real_pdf(pdf_path):
+    with pdfplumber.open(pdf_path) as pdf:
+        text = ''
+        for page in pdf.pages:
+            text += page.extract_text() or ''
+        return text
+
 def read_pdf(pdf_path):
     try:
         with pdfplumber.open(pdf_path) as pdf:
             text = ''
             for page in pdf.pages:
-                text += page.extract_text() or ''  # Concatenate text of all pages
-            return text
+                text += page.extract_text() or ''
+        return text
     except:
         print('To nie jest pdf: ',pdf_path)
     try:
-        read_text_file(pdf_path)
+        text = read_text_file(pdf_path)
+        return text
     except:
         print('To jest uszkodzony plik: ',pdf_path)
 
