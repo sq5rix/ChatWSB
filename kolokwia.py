@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, PickleType
+from sqlalchemy import Column, Integer, Text, PickleType
 from sqlalchemy import UniqueConstraint, ForeignKey
 from sqlalchemy.orm import relationship
 from dbclass import Database, Base, DB_FILE
@@ -12,19 +12,19 @@ PDF_DIRECTORY = 'DaneWrazliwe/drive-download-20240608T095515Z-001'
 class Kolokwia(Base):
     __tablename__ = 'kolokwia'
 
-    data        = Column(String)
-    imie        = Column(String)
-    nazwisko    = Column(String)
-    rok         = Column(String)
-    grupa       = Column(String)
-    id_studenta = Column(String, nullable=False)
-    digest      = Column(String, nullable=False, unique=True, primary_key=True)
-    nazwa_pliku = Column(String)
-    pytanie     = Column(String)
-    domena      = Column(String)
-    zrodla      = Column(String)
-    tresc       = Column(String)
-    text        = Column(String)
+    data        = Column(Text)
+    imie        = Column(Text)
+    nazwisko    = Column(Text)
+    rok         = Column(Text)
+    grupa       = Column(Text)
+    id_studenta = Column(Text)
+    digest      = Column(Text, nullable=False, unique=True, primary_key=True)
+    nazwa_pliku = Column(Text)
+    pytanie     = Column(Text)
+    domena      = Column(Text)
+    zrodla      = Column(Text)
+    tresc       = Column(Text)
+    text        = Column(Text)
     distance    = Column(PickleType)
 
     def __repr__(self):
@@ -33,8 +33,8 @@ class Kolokwia(Base):
 class Tematy(Base):
     __tablename__ = 'tematy'
     temat_id = Column(Integer, primary_key=True)
-    pytanie  = Column(String, unique=True)
-    aitext   = Column(String)
+    pytanie  = Column(Text, unique=True)
+    aitext   = Column(Text)
 
     def __repr__(self):
         return f"<MyModel(pytanie='{self.pytanie}', aitext={self.aitext})>"

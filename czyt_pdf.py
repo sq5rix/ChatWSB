@@ -18,7 +18,7 @@ patterns = {
     'nazwisko': r'Nazwisko: (\w+)',
     'rok': r'Rok: (\d+)$',
     'grupa': r'[gG]rupa: (.*?)[iI][Dd]',
-    'id_studenta': r'[iI][Dd][ _][Ss]tudent.*?:\s*?(\d+)',
+    'id_studenta': r'[iI][Dd][ _][Ss]tudenta:\s*?(\d+)$',
     'pytanie': r'[tT]emat [pP]racy:(.*?)[Dd]omena',
     'domena': r'[dD]omena:(.*?)[ŹźzZ]r[óo]d[lł]a',
     'zrodla': r'[ŹźzZ]r[oó]d[lł]a: (.*?)Tre',
