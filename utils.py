@@ -2,6 +2,10 @@ import hashlib
 import pdfplumber
 import chardet
 import codecs
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 
 def calculate_digest(input_string):
@@ -52,6 +56,27 @@ def read_text_file(file_path):
     return content
 
 
+def generate_pdf_from_string(text, output_filepath):
+    # Create a canvas object
+    c = canvas.Canvas(output_filepath, pagesize=letter)
+
+    # Set font and size
+    pdfmetrics.registerFont(TTFont('Roboto', '/usr/share/fonts/TTF/Roboto-Medium.ttf'))
+    c.setFont("Roboto", 12)
+
+    # Split the text into lines
+    lines = text.split('\n')
+
+    # Set the initial y-coordinate for drawing text
+    y = 750
+
+    # Draw each line of text
+    for line in lines:
+        c.drawString(100, y, line)
+        y -= 12  # Move to the next line
+
+    # Save the canvas to a PDF file
+    c.save()
 
 def main():
     input_string = "Hello, World!"
@@ -60,8 +85,6 @@ def main():
     file_path = 'DaneWrazliwe/drive-download-20240523T142544Z-001/Tyszka.txt'
     file_content = read_text_file(file_path)
     #print(file_content)
-
-
 
 if __name__ == "__main__":
     main()

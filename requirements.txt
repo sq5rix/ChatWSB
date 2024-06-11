@@ -13,3 +13,5 @@ chardet
 rouge-score
 streamlit
 openpyxl
+reportlab
+
