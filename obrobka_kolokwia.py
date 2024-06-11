@@ -19,28 +19,28 @@ def przelicz_pytania():
             print('odp : ', odp )
             db.create_record(Tematy, {'pytanie':i[0], 'aitext':odp})
 
-def drukuj_wynik():
-    db = Database(DB_FILE)
-    sel = db.session.query(Kolokwia).all()
-    for i in sel:
-        print(i.nazwa_pliku, i.distance)
-    #tem = db.exec_query('select aitext from tematy')
-    #for t in tem:
-    #    try:
-    #        print('tem : ', t[0].strip()[:38])
-    #    except:
-    #        print('cos nie tak')
+def drukuj_wynik(db_file):
+    db = Database(db_file)
+    #sel = db.session.query(Kolokwia).all()
+    #for i in sel:
+    #    print(i.nazwa_pliku, i.distance)
+    tem = db.session.query(Tematy).all()
+    for t in tem:
+        try:
+            print(t.pytanie)
+        except:
+            print('cos nie tak')
+    return [t.pytanie for t in tem]
 
 def dodaj_odleglosci():
     odl = przelicz_odleglosci()
-
 
 def main():
     db = Database(DB_FILE)
     #txt = read_all_files(PDF_DIRECTORY)
     #przelicz_pytania()
     #dodaj_odleglosci()
-    drukuj_wynik()
+    drukuj_wynik(DB_FILE)
 
 if __name__ == "__main__":
     main()

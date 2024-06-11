@@ -1,4 +1,6 @@
 from utils import generate_pdf_from_string
+from imchat import infer_chat
+from obrobka_kolokwia import drukuj_wynik
 
 KATALOG_SZTUCZNYCH_KOLOKWIOW = 'sztuczne_kolokwia/'
 
@@ -24,7 +26,10 @@ Treść:
 
 """
 
-output_filepath = KATALOG_SZTUCZNYCH_KOLOKWIOW + '1.pdf'
-text = prompt_kolokwium('co robić 8 klaso')
-generate_pdf_from_string(text, output_filepath)
+db_file = 'sqlite:///k143.db'
+tem = drukuj_wynik(db_file)
+for e,v in enumerate(tem):
+    output_filepath = KATALOG_SZTUCZNYCH_KOLOKWIOW + f'{e}.pdf'
+    text = infer_chat(prompt_kolokwium(v))
+    generate_pdf_from_string(text, output_filepath)
 
