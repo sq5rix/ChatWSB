@@ -21,16 +21,16 @@ def przelicz_pytania():
 
 def drukuj_wynik(db_file):
     db = Database(db_file)
-    #sel = db.session.query(Kolokwia).all()
-    #for i in sel:
-    #    print(i.nazwa_pliku, i.distance)
-    tem = db.session.query(Tematy).all()
-    for t in tem:
-        try:
-            print(t.pytanie)
-        except:
-            print('cos nie tak')
-    return [t.pytanie for t in tem]
+    sel = db.session.query(Kolokwia).all()
+    for i in sel:
+        print(i.nazwa_pliku, i.distance)
+    #tem = db.session.query(Tematy).all()
+    #for t in tem:
+    #    try:
+    #        print(t.pytanie)
+    #    except:
+    #        print('cos nie tak')
+    #return [t.pytanie for t in tem]
 
 def dodaj_odleglosci():
     odl = przelicz_odleglosci()
