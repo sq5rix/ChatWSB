@@ -55,6 +55,8 @@ def read_all_files(pdf_directory):
         elif filename.endswith('.txt'):
             file_path = os.path.join(pdf_directory, filename)
             text = read_text_file(file_path)
+        else:
+            continue
         try:
             info = extract_information(text)
             info['nazwa_pliku'] = filename
