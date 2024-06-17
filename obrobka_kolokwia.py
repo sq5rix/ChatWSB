@@ -1,5 +1,4 @@
-import json
-from pprint import pprint
+import re
 from dbclass import Database, Base, DB_FILE
 from czyt_pdf import read_all_files
 from kolokwia import Tematy, PDF_DIRECTORY, Kolokwia
@@ -32,9 +31,12 @@ def parsuj_wynik(string_to_parse):
     for pair in pairs:
         pair = pair.strip()
         if ':' in pair:
-            key, value = pair.split(':')
-            value = int(value.strip().replace('.',''))
-            parsed_dict[key] = int(value)  # Convert value to int if necessary
+            pair = pair.replace('ocen:','').replace('ocena:','').replace('ocena','').replace('ocena','')
+            o = pair.split(':')
+            key, value = o[0], o[1]
+            key = key.strip()
+            match = re.search(r'\d+', value)
+            parsed_dict[key] = int(match.group()) if match else 0
     return parsed_dict
 
 def dodaj_odleglosci():
@@ -45,6 +47,7 @@ def wyciagnij_slownik_odleglosci():
     sel = db.session.query(Kolokwia).all()
     a = []
     for i in sel:
+        #try:
         x = i.distance
         if x:
             x.update({'nazwa':i.nazwa_pliku})
@@ -53,16 +56,18 @@ def wyciagnij_slownik_odleglosci():
                 x.update(d)
                 del x['ocenaGPT']
             a.append(x)
+        #except:
+        #    print('błąd parsowania: ', x)
     return a
 
 def main():
-    db = Database(DB_FILE)
+    #db = Database(DB_FILE)
     #txt = read_all_files(PDF_DIRECTORY)
     #przelicz_pytania()
     #dodaj_odleglosci()
-    #drukuj_wynik()
     odl = wyciagnij_slownik_odleglosci()
     save_dict_to_excel(odl, 'DaneWrazliwe/wyniki.xlsx')
+    drukuj_wynik(DB_FILE)
 
 if __name__ == "__main__":
     main()

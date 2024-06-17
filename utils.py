@@ -56,8 +56,6 @@ def read_text_file(file_path):
         content = content.encode('utf-8').decode('utf-8')
     return content
 
-<<<<<<< HEAD
-
 def generate_pdf_from_string(text, output_filepath):
     # Create a canvas object
     c = canvas.Canvas(output_filepath, pagesize=letter)
