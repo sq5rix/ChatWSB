@@ -47,6 +47,7 @@ class Database:
         # Query the session for records where the specified attribute matches the given value
         return self.session.query(model_class).filter(getattr(model_class, attribute) == value).all()
 
+
     def exec_query(self, query_string):
         return self.session.execute(text(query_string))
 

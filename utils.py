@@ -56,6 +56,7 @@ def read_text_file(file_path):
         content = content.encode('utf-8').decode('utf-8')
     return content
 
+<<<<<<< HEAD
 
 def generate_pdf_from_string(text, output_filepath):
     # Create a canvas object
@@ -83,6 +84,10 @@ def zapisz_slownik_do_excela(slownik, excel_name):
     df = pd.DataFrame(slownik)
     df.to_excel(excel_name)
 
+
+def save_dict_to_excel(dct, excel_file_name):
+    df = pd.DataFrame(dct)
+    df.to_excel(excel_file_name)
 
 def main():
     #input_string = "Hello, World!"
