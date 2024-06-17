@@ -31,7 +31,7 @@ def parsuj_wynik(string_to_parse):
     for pair in pairs:
         pair = pair.strip()
         if ':' in pair:
-            pair = pair.replace('ocen:','').replace('ocena:','').replace('ocena','').replace('ocena','')
+            pair = pair.replace('oceny struktur','struktura').replace('oceny:','').replace('ocen:','').replace('ocena:','').replace('ocena','').replace('ocena','')
             o = pair.split(':')
             key, value = o[0], o[1]
             key = key.strip()
@@ -47,17 +47,17 @@ def wyciagnij_slownik_odleglosci():
     sel = db.session.query(Kolokwia).all()
     a = []
     for i in sel:
-        #try:
-        x = i.distance
-        if x:
-            x.update({'nazwa':i.nazwa_pliku})
-            d = parsuj_wynik(x.get('ocenaGPT', None))
-            if d:
-                x.update(d)
-                del x['ocenaGPT']
-            a.append(x)
-        #except:
-        #    print('błąd parsowania: ', x)
+        try:
+            x = i.distance
+            if x:
+                x.update({'nazwa':i.nazwa_pliku})
+                d = parsuj_wynik(x.get('ocenaGPT', None))
+                if d:
+                    x.update(d)
+                    del x['ocenaGPT']
+                a.append(x)
+        except:
+            print('błąd parsowania: ', x)
     return a
 
 def main():
@@ -67,7 +67,7 @@ def main():
     #dodaj_odleglosci()
     odl = wyciagnij_slownik_odleglosci()
     save_dict_to_excel(odl, 'DaneWrazliwe/wyniki.xlsx')
-    drukuj_wynik(DB_FILE)
+    #drukuj_wynik(DB_FILE)
 
 if __name__ == "__main__":
     main()
