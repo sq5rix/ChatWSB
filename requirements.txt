@@ -2,6 +2,7 @@ neovim
 jedi
 openai
 pdfplumber
+pandas
 scipy
 spacy
 python-dotenv

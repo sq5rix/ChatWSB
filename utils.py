@@ -1,5 +1,6 @@
 import hashlib
 import pdfplumber
+import pandas as pd
 import chardet
 import codecs
 from reportlab.pdfgen import canvas
@@ -78,13 +79,21 @@ def generate_pdf_from_string(text, output_filepath):
     # Save the canvas to a PDF file
     c.save()
 
+def zapisz_slownik_do_excela(slownik, excel_name):
+    df = pd.DataFrame(slownik)
+    df.to_excel(excel_name)
+
+
 def main():
-    input_string = "Hello, World!"
-    digest_number = calculate_digest(input_string)
-    print("Digest number of '{}' is: {}".format(input_string, digest_number))
-    file_path = 'DaneWrazliwe/drive-download-20240523T142544Z-001/Tyszka.txt'
-    file_content = read_text_file(file_path)
+    #input_string = "Hello, World!"
+    #digest_number = calculate_digest(input_string)
+    #print("Digest number of '{}' is: {}".format(input_string, digest_number))
+    #file_path = 'DaneWrazliwe/drive-download-20240523T142544Z-001/Tyszka.txt'
+    #file_content = read_text_file(file_path)
     #print(file_content)
+    excel_name = 'excel.xlsx'
+    slownik = [{'a':1, 'b':2}, {'a':2, 'b':3}]
+    zapisz_slownik_do_excela(slownik, excel_name)
 
 if __name__ == "__main__":
     main()
