@@ -37,18 +37,9 @@ def parsuj_wynik(string_to_parse):
             parsed_dict[key] = int(value)  # Convert value to int if necessary
     return parsed_dict
 
-
 def dodaj_odleglosci():
     odl = przelicz_odleglosci()
 
-<<<<<<< HEAD
-def main():
-    db = Database(DB_FILE)
-    txt = read_all_files(PDF_DIRECTORY)
-    przelicz_pytania()
-    dodaj_odleglosci()
-    drukuj_wynik(DB_FILE)
-=======
 def wyciagnij_slownik_odleglosci():
     db = Database(DB_FILE)
     sel = db.session.query(Kolokwia).all()
@@ -72,7 +63,6 @@ def main():
     #drukuj_wynik()
     odl = wyciagnij_slownik_odleglosci()
     save_dict_to_excel(odl, 'DaneWrazliwe/wyniki.xlsx')
->>>>>>> origin/excel
 
 if __name__ == "__main__":
     main()
