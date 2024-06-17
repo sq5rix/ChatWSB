@@ -2,6 +2,7 @@ import hashlib
 import pdfplumber
 import chardet
 import codecs
+import pandas as pd
 
 
 def calculate_digest(input_string):
@@ -40,7 +41,9 @@ def read_text_file(file_path):
         content = content.encode('utf-8').decode('utf-8')
     return content
 
-
+def save_dict_to_excel(dct, excel_file_name):
+    df = pd.DataFrame(dct)
+    df.to_excel(excel_file_name)
 
 def main():
     input_string = "Hello, World!"
